@@ -2,10 +2,19 @@ import React, {useState} from 'react';
 import {Text, SafeAreaView, TouchableOpacity, StyleSheet} from 'react-native';
 
 const App = () => {
+
+    const [numero, setNumero] = useState(0);
+
+    function handleNumero() {
+        const novo_numero = Math.floor(Math.random() * 10);
+
+        setNumero(novo_numero);
+    }
+
     return (
         <SafeAreaView style={style.container}>
-            <Text style={style.numero}>0</Text>
-            <TouchableOpacity>
+            <Text style={style.numero}>{numero}</Text>
+            <TouchableOpacity onPress={handleNumero}>
                 <Text>Gerar Número</Text>
             </TouchableOpacity>
         </SafeAreaView>
